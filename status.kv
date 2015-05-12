@@ -1,10 +1,18 @@
-<Status@BoxLayout>:
-	size_hint:1,.08
+
+<Status>:
+	_tnd: _tnd
+	canvas.before:
+		Color:
+			rgba: 0,0,0,1
+		Rectangle:
+			pos: self.pos
+			size: self.size
+	Button:
+		text: root._change
 	Label:
-		text:'Current Year'
+		id: yo
+		text:'Current Date and Time:'
 	Label:
-	
-	Label:
-		text:'Current Month'
-	Label:
+		id: _tnd
+		text: root._change +'lo'
 	

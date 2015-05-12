@@ -2,13 +2,23 @@
 	background_color: 0.1,.5,.5,1
 	
 <Calender>:
-	
+	canvas.before:
+		Color:
+			rgba: .5,.6,.7,1
+		Rectangle:
+			pos: self.pos
+			size: self.size
+	orientation:'vertical'
 	BoxLayout:
-		size_hint: .2,1
-		Months:
+		size_hint:1,.1
+		Select:
 		
 	BoxLayout:
-		orientation: 'vertical'
-		Select:	
-		Dates:
+		Months:
+		BoxLayout:
+			orientation: 'vertical'
+			Days:
+			Dates:
+	BoxLayout:
+		size_hint:1,.1
 		Status:

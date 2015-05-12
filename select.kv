@@ -1,8 +1,32 @@
-<Select@BoxLayout>:
-	size_hint:1,.09
-	Spinner:
-		text: "Select Year"
-		values: ('1990','1991')
+<Select>:
+	lbl_: lbl
+	btn: btn
+	year_1_: year_1
+	year_2: year_2
+	
 	Label:
-		text:'Reach date :'
-	TextInput:
+		id: lbl
+		text:'Select Year :'
+		
+	Spinner:
+		id: year_1
+		size_hint: .1,1
+		halign: 'right'
+		valign: 'middle'
+		text_size: self.size
+		text:'00'
+		on_press: root.get_years()
+		
+	Spinner:
+		id: year_2
+		size_hint: .1,1
+		halign: 'left'
+		valign: 'middle'
+		text_size: self.size
+		text:'00'
+		on_press: root.get_years()
+	Button:
+		id: btn
+		text:'Go!'
+		on_press: lbl.text = 'Selected Year : '
+		on_release: lbl.text = lbl.text + year_1.text+year_2.text
