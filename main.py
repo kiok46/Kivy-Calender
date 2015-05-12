@@ -4,6 +4,7 @@
 # import Statements
 import calendar
 import time
+import datetime
 from kivy.app import App
 from kivy.lang import Builder
 from kivy.uix.boxlayout import BoxLayout
@@ -27,9 +28,6 @@ Builder.load_file('days.kv')
 class Calender(BoxLayout):
     def __init__(self,**kwargs):
         super(Calender,self).__init__(**kwargs)
-        self.status = Status()
-        self.up = Status(_change = self.status._change)
-        self.status.bind(_change=self.setter('value'))
         
         
 
@@ -39,15 +37,11 @@ class Calender(BoxLayout):
 # class for status.kv file
 class Status(BoxLayout,EventDispatcher):
     
-    _change = StringProperty('')
-    _tnd = ObjectProperty(None)
     def __init__(self,**kwargs):
         super(Status,self).__init__(**kwargs)
         
-    def update(self,*args):
-        self.time = time.asctime()
-        self._change = str(self.time)
-        print self.time
+        
+        
         
 # ------------------------------------------------------------------------------------------------#
 
@@ -82,6 +76,7 @@ class Select(BoxLayout):
 
 # class for dates.kv file
 class Dates(GridLayout):
+    now = datetime.datetime.now()
     c  = calendar.monthcalendar(2015,5)
     def __init__(self,**kwargs):
         super(Dates,self).__init__(**kwargs)
@@ -94,18 +89,7 @@ class Dates(GridLayout):
                     self.add_widget(Button(text = '{j}'.format(j=j)))
             
     def get_month(self):
-        self.d = Dates()
-        self.p = self.sp.year_1_.text
-        self.q = self.sp.year_2.text
-        self.r = self.p+self.q
-        self.r = int(self.r)
-        self.c  = calendar.monthcalendar(0000,5)
-        for i in self.c:
-            for j in i:
-                if j == 0:
-                    self.add_widget(Button(text = '{j}'.format(j='')))
-                else:
-                    self.add_widget(Button(text = '{j}'.format(j=j)))
+        pass
 
 
 # ------------------------------------------------------------------------------------------------#
@@ -121,11 +105,15 @@ class Months(BoxLayout):
 
 # mainApp class
 class mainApp(App):
+    time = StringProperty()
+    
+    def update(self,*args):
+        self.time = str(time.asctime())
+        
     def build(self):
         self.title = "Kivy-Calender"
         self.load_kv('calender.kv')
-        _get_date = Status()
-        Clock.schedule_interval(_get_date.update,1)
+        Clock.schedule_interval(self.update,1)
         return Calender()
 
 # BoilerPlate
