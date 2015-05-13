@@ -32,10 +32,11 @@ Android/Windows/Linux/Mac.**
 - Clock
 - Memoization
 - JSON
+- GUI designing
  
 ***
 Want to contribute?
--------------------
+-----------------
 
 Prerequisites
 -------------
@@ -76,7 +77,7 @@ On OS X you might need to use `kivy` command instead of `Python` if you are usin
 
 If you're successful, you'll see something like this:
 
-![ScreenShot](https://raw.github.com/kivy/kivy-designer/master/kivy_designer.png)
+![ScreenShot](https://raw.github.com/kiok46/Kivy-Calender/master/kivy-calendar.jpg)
+![ScreenShot](https://raw.github.com/kiok46/Kivy-Calender/master/kivy-reminder.jpg)
 
 *** This project was started by Kuldeep Grewal. ***
-
