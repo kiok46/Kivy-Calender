@@ -12,10 +12,11 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.properties import ListProperty
 from kivy.properties import ObjectProperty
 from kivy.properties import StringProperty
-from kivy.uix.label import Label
 from kivy.clock import Clock
+from kivy.uix.popup import Popup
 from kivy.uix.button import Button
 from kivy.event import EventDispatcher
+from kivy.uix.textinput import TextInput
 
 # Builder used to load all the kivy files to be loaded in the main.py file
 Builder.load_file('months.kv')
@@ -74,22 +75,70 @@ class Select(BoxLayout):
 # ------------------------------------------------------------------------------------------------#
 
 
-# class for dates.kv file
-class Dates(GridLayout):
-    now = datetime.datetime.now()
-    c  = calendar.monthcalendar(2015,5)
+# class for Reminder in Dates
+class Reminder(BoxLayout):
     def __init__(self,**kwargs):
-        super(Dates,self).__init__(**kwargs)
+        super(Reminder,self).__init__(**kwargs)
+        
+        self.orientation = 'vertical'
+        self.add_widget(TextInput())
+        self.b = BoxLayout(orientation = 'horizontal' , size_hint = (1,.15))
+        self.add_widget(self.b)
+        self.b.add_widget(Button(on_release = self.on_release,text = "OK!"))
+        
+    def on_release(self,event):
+        print "OK clicked!"
+
+# ------------------------------------------------------------------------------------------------#
+'''
+class get_months(GridLayout):
+    def __init__(self,c,**kwargs):
+        super(get_months,self).__init__(**kwargs)
         self.cols = 7
+        self.c  = calendar.monthcalendar(2015,5)
         for i in self.c:
             for j in i:
                 if j == 0:
-                    self.add_widget(Button(text = '{j}'.format(j='')))
+                    self.add_widget(Button(on_release = self.on_release,text = '{j}'.format(j='')))
                 else:
-                    self.add_widget(Button(text = '{j}'.format(j=j)))
-            
+                    self.add_widget(Button(on_release = self.on_release, text = '{j}'.format(j=j)))
+    
+    def on_release(self,args):
+        pass
+        
+        
+'''
+# class for dates.kv file
+class Dates(GridLayout):
+    now = datetime.datetime.now()
+    
+    
+    def __init__(self,**kwargs):
+        super(Dates,self).__init__(**kwargs)
+        self.cols = 7
+        self.c  = calendar.monthcalendar(2015,5)
+        for i in self.c:
+            for j in i:
+                if j == 0:
+                    self.add_widget(Button(on_release = self.on_release,text = '{j}'.format(j='')))
+                else:
+                    self.add_widget(Button(on_release = self.on_release, text = '{j}'.format(j=j)))
+        
     def get_month(self):
         pass
+    
+    def on_dismiss(self, arg):
+        # Do something on close of popup
+        pass
+    
+    def on_release(self,event):
+        print "date clicked :" + event.text
+        event.background_color = 1,0,0,1
+        self.popup = Popup(title= "Set Reminder :",
+        content = Reminder(),
+        size_hint=(None, None), size=(self.width*3/4, self.height))
+        self.popup.bind(on_dismiss = self.on_dismiss)
+        self.popup.open() 
 
 
 # ------------------------------------------------------------------------------------------------#
@@ -111,7 +160,7 @@ class mainApp(App):
         self.time = str(time.asctime())
         
     def build(self):
-        self.title = "Kivy-Calender"
+        self.title = "Kivy-Calendar"
         self.load_kv('calender.kv')
         Clock.schedule_interval(self.update,1)
         return Calender()
