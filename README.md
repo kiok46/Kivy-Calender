@@ -1,7 +1,7 @@
 Kivy-Calendar
 =============
 
-Kivy-Calendar as name suggests is an Calender.
+Kivy-Calendar as name suggests is an Calender, but its **much more** its a Calender+weather+Reminder Application.
 
 Its Source code is written completely in Python and Kivy.
 ***
@@ -13,9 +13,9 @@ Android/Windows/Linux/Mac.**
 ***
 **Features:**
 
-- Easy to use GUI.
-- Calendar consists of years from 0000 to 9999.
+- Weather report for next 7 days.
 - Set Reminder.
+- Calendar consists of years from 0000 to 9999.
 - After completion will be available for free.
 
 **Additional Feature:**
@@ -24,15 +24,16 @@ Android/Windows/Linux/Mac.**
 
 **Programming Features:**
 
-- Classes.
+- Clock
+- JSON
+- JSONP
+- Cache
+- Vectors
+- Weather API
+- Memoization
+- Classes
 - Widgets in kivy
 - Properties in Kivy
-- Vectors
-- Cache
-- Clock
-- Memoization
-- JSON
-- GUI designing
  
 ***
 Want to contribute?
@@ -80,4 +81,4 @@ If you're successful, you'll see something like this:
 ![ScreenShot](https://raw.github.com/kiok46/Kivy-Calender/master/kivy-calendar.jpg)
 ![ScreenShot](https://raw.github.com/kiok46/Kivy-Calender/master/kivy-reminder.jpg)
 
-*** This project was started by Kuldeep Grewal. ***
+***This project was started by Kuldeep Grewal.***
