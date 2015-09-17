@@ -1,12 +1,12 @@
 Kivy-Calendar
 =============
 
-Kivy-Calendar as name suggests is an Calender, but its **much more** its a Calender+weather+Reminder Application.
+Kivy-Calendar as name suggests is an Calender Application.
 
 Its Source code is written completely in Python and Kivy.
 ***
 **After completion calendar will be available for 
-Android/Windows/Linux/Mac.**
+Android/Windows.**
 
  A Package will be provided and you don't need to install any prerequisites.
 
@@ -81,4 +81,4 @@ If you're successful, you'll see something like this:
 ![ScreenShot](https://raw.github.com/kiok46/Kivy-Calender/master/kivy-calendar.jpg)
 ![ScreenShot](https://raw.github.com/kiok46/Kivy-Calender/master/kivy-reminder.jpg)
 
-***This project was started by Kuldeep Grewal.***
+***This project was started by Kuldeep Singh.***
