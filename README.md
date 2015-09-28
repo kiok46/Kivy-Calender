@@ -20,7 +20,7 @@ Android/Windows.**
 
 **Additional Feature:**
 
-- Popular Snake game at press of a button.
+- A Ping Pong game.
 
 **Programming Features:**
 
